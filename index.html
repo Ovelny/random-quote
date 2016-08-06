@@ -20,11 +20,21 @@
 			</div>
 			<div class="mdl-card__supporting-text">Click on the Button to display a new quote ! You can also share it on Twitter.</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Generate</button>
+				<button id="getQuote" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Generate</button>
 			</div>
 		</div>
 
 	</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>  
+
+	<script>
+		$(document).ready(function() {
+			$("#getQuote").on("click",function(){
+				$(".mdl-card__supporting-text").html("message here");
+			}
+		});
+	</script>
 </body>
 
 </html>
