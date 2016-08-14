@@ -4,12 +4,6 @@ $(document).ready(function() {
 		$(this).transition('jiggle');
 	});
 
-	/*$("#generateQuote").click(function() {
-		$(".presentation").remove();
-		$(".quote").html(getQuote);
-		$("p").removeClass("hidden");
-	});*/
-
 	$("#generateQuote").click(function() {
 
 		$.ajax({
@@ -19,11 +13,16 @@ $(document).ready(function() {
 			success: function(getQuote) {
 
 				$(".presentation").remove();
-				$(".quote-content").html(JSON.stringify(getQuote));
+				$(".quote-content").html(JSON.stringify(getQuote.quote)).transition("fade left");
+				$(".quote-author").html(JSON.stringify(getQuote.author).replace(/\"/g,"")).transition("fade left");
+
+				
 				$("p").removeClass("hidden");
 
 
 			},
 		});
 	});
+
+	
 });
