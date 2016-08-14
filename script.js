@@ -10,19 +10,20 @@ $(document).ready(function() {
 		$("p").removeClass("hidden");
 	});*/
 
-	$.ajax({
-		url: "http://quotes.stormconsultancy.co.uk/quotes/random.json?callback=foo",
-		type: "GET",
-		dataType: "jsonp",
-		success: function(getQuote) {
+	$("#generateQuote").click(function() {
 
-			$("#generateQuote").click(function() {
+		$.ajax({
+			url: "http://quotes.stormconsultancy.co.uk/quotes/random.json?callback=foo",
+			type: "GET",
+			dataType: "jsonp",
+			success: function(getQuote) {
 
 				$(".presentation").remove();
 				$(".quote-content").html(JSON.stringify(getQuote));
 				$("p").removeClass("hidden");
 
-			});
-		},
+
+			},
+		});
 	});
 });
