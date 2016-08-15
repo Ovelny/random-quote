@@ -13,8 +13,12 @@ $(document).ready(function() {
 			success: function(getQuote) {
 
 				$(".presentation").remove();
-				$(".quote-content").html(JSON.stringify(getQuote.quote)).transition("fade left");
-				$(".quote-author").html(JSON.stringify(getQuote.author).replace(/\"/g,"")).transition("fade left");
+
+				$(".quote-content").animate({'opacity': 0}, 350);
+				$(".quote-author").animate({'opacity': 0}, 350);
+				
+				$(".quote-content").html(JSON.stringify(getQuote.quote)).animate({'opacity': 100}, 350);
+				$(".quote-author").html(JSON.stringify(getQuote.author).replace(/\"/g,"")).animate({'opacity': 100}, 350);
 
 				
 				$("p").removeClass("hidden");
