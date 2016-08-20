@@ -14,11 +14,7 @@ $(document).ready(function() {
 			dataType: "jsonp",
 			success: function(getQuote) {
 
-				
-
 				$(".presentation").remove();
-
-				$(".twitter-share-button").prop("href", "https://twitter.com/intent/tweet?text=" + twtShrQuote + " ~ " + twtShrAuthor);
 
 				/*$(".quote-content").animate({
 					'opacity': 0
@@ -39,9 +35,9 @@ $(document).ready(function() {
 				var twtShrQuote = $("p.quote-content").text();
 				var twtShrAuthor = $("p.quote-author").text();
 
+				$(".twitter-share-button").prop("href", "https://twitter.com/intent/tweet?text=" + twtShrQuote + " ~ " + twtShrAuthor);
 
 				$("p").removeClass("hidden");
-				console.log(twtShrQuote);
 
 			},
 		});
