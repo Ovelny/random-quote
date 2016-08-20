@@ -5,9 +5,7 @@ $(document).ready(function() {
 	});
 
 	$("#generateQuote").click(function() {
-
-
-
+		
 		$.ajax({
 			url: "http://quotes.stormconsultancy.co.uk/quotes/random.json?callback=foo",
 			type: "GET",
