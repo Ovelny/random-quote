@@ -12,37 +12,25 @@ $(document).ready(function() {
 			dataType: "jsonp",
 			success: function(getQuote) {
 
-				/*$(".quote-content").animate({
-					'opacity': 0
-				}, 350);*/
-
-				/*$(".quote-author").animate({
-					'opacity': 0
-				}, 350);*/
-
 				if (getQuote.quote.length + getQuote.author.length <= 140) {
 
 					$(".presentation").remove();
 
-					$(".quote-content").html(JSON.stringify(getQuote.quote)).animate({
-						'opacity': 100
-					}, 350);
+					$(".quote-content").html(JSON.stringify(getQuote.quote)).fadeIn("slow");
+					$(".quote-author").html(JSON.stringify(getQuote.author).replace(/\"/g, "")).fadeIn("slow");
 
-					$(".quote-author").html(JSON.stringify(getQuote.author).replace(/\"/g, "")).animate({
-						'opacity': 100
-					}, 350);
-
-					var twtShrQuote = $("p.quote-content").text();
+					var twtShrQuote = $("p.quote-content").text().replace(/;/g,"%3B").replace(/:/g,"%3A").replace(/\+/g, "%2B"); //TODO Replace URL encoded properly
 					var twtShrAuthor = $("p.quote-author").text();
 
 					$(".twitter-share-button").prop("href", "https://twitter.com/intent/tweet?text=" + twtShrQuote + " ~ " + twtShrAuthor);
 
 					$("p").removeClass("hidden");
 
+				} else {
+					$.ajax(this);
 				}
-				console.log(getQuote.quote.length + getQuote.author.length);
 
-			},
+			}
 		});
 	});
 
