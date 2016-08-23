@@ -21,10 +21,10 @@ $(document).ready(function() {
 
 					var twtShrQuote = $("p.quote-content").text();
 					var twtShrAuthor = $("p.quote-author").text();
-					var twtUrl = "https://twitter.com/intent/tweet?text=" + twtShrQuote +" ~ " + twtShrAuthor;
+					var twtUrl = twtShrQuote +" ~ " + twtShrAuthor;
 					var encodedtwtUrl = encodeURIComponent(twtUrl);
 
-					$(".twitter-share-button").prop("href", encodedtwtUrl);
+					$(".twitter-share-button").prop("href", "https://twitter.com/intent/tweet?text=" + encodedtwtUrl);
 
 					$("p").removeClass("hidden");
 
