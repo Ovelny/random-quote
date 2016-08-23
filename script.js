@@ -19,10 +19,12 @@ $(document).ready(function() {
 					$(".quote-content").html(JSON.stringify(getQuote.quote)).fadeIn("slow");
 					$(".quote-author").html(JSON.stringify(getQuote.author).replace(/\"/g, "")).fadeIn("slow");
 
-					var twtShrQuote = $("p.quote-content").text().replace(/;/g,"%3B").replace(/:/g,"%3A").replace(/\+/g, "%2B"); //TODO Replace URL encoded properly
+					var twtShrQuote = $("p.quote-content").text();
 					var twtShrAuthor = $("p.quote-author").text();
+					var twtUrl = "https://twitter.com/intent/tweet?text=" + twtShrQuote +" ~ " + twtShrAuthor;
+					var encodedtwtUrl = encodeURIComponent(twtUrl);
 
-					$(".twitter-share-button").prop("href", "https://twitter.com/intent/tweet?text=" + twtShrQuote + " ~ " + twtShrAuthor);
+					$(".twitter-share-button").prop("href", encodedtwtUrl);
 
 					$("p").removeClass("hidden");
 
