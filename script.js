@@ -21,10 +21,18 @@ $(document).ready(function() {
 
 					var twtShrQuote = $("p.quote-content").text();
 					var twtShrAuthor = $("p.quote-author").text();
-					var twtUrl = twtShrQuote +" ~ " + twtShrAuthor;
+					var twtUrl = twtShrQuote + " ~ " + twtShrAuthor;
 					var encodedtwtUrl = encodeURIComponent(twtUrl);
 
-					$(".twitter-share-button").prop("href", "https://twitter.com/intent/tweet?text=" + encodedtwtUrl);
+					var twtShare = document.getElementById("shareTwitter");
+
+					twtShare.onclick = function twtPopup() {
+						var twtPop = window.open("https://twitter.com/intent/tweet?text=" + encodedtwtUrl, "Twitter-share", "height=350, width=600");
+						if (twtPop.focus) {
+							twtPop.focus();
+						}
+						return false;
+					}
 
 					$("p").removeClass("hidden");
 
@@ -35,6 +43,5 @@ $(document).ready(function() {
 			}
 		});
 	});
-
 
 });
